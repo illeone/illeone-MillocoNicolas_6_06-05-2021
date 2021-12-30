@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishEye - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+
+<body>
+    <a id="lien-photographe" href="#photographes">Passer au contenu</a>
+    <header role="banniere">
+        <a href="index.html" title="HomePage"><img
+                id="logo"
+                src="logo.png"
+                alt="FishEye page d'accueil"></a>
+        <nav class="filtre" aria-label="categories photographes " role="navigation">
+            <ul class="filtre_nav">
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="portrait">#portrait</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="art">#art</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="fashion">#fashion</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="architecture">#architecture</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="travel">#travel</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="sport">#sport</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="animals">#animals</li></a>
+                <a href='#'><li class="filtre_nav_head" tabindex="1" data-filter="events">#events</li></a>
+            </ul>
+        </nav>
+        <h1>Nos Photographes</h1>
+    </header>
+    <main>
+        <section id="photographers" aria-label="photographers">   
+            <div id="hello-result">
+            </div>      
+        </section>
+    </main>
+    <script src="Photographer.js" ></script>
+    <script src="index.js" ></script>
+</body>
+
+</html>

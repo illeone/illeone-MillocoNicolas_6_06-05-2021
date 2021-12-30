@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FishEye - Page photographe</title>
+        <link rel="stylesheet" href="style.css">
+
+	</head>
+	<body class="photographer-page__body">
+        <a href="index.html" title="HomePage"><img
+            id="logo"
+            src="logo.png"
+            alt="FishEye page d'accueil"
+		aria-label="retour menu principal">
+		
+	    </a>
+		<header class="header">
+            <section id="photographer-page" aria-label="">       
+            </section>
+		</header>
+		<main class="main">
+
+			<div class="photographer-page__sort">
+				<label for="">Trier par</label>
+				<select
+					id="photographer-page__sort__select"
+					aria-label="Trier par"
+				>
+					<option value="popularity" class="">Popularité</option>
+					<option value="date" class="">Date</option>
+					<option value="title" class="">Titre</option>
+				</select>
+			</div>
+
+		</main>
+        
+		<div id="contact__modal" class="modal" role="dialog" aria-modal="true">
+			<div class="modal-content">
+				<header class="modal-header">
+					<h1 class="modal-header-title">Contactez-moi</h1>
+					<span class="close">&times;</span>
+				</header>
+				<form class="form">
+					<div class="form-field">
+						<label for="firstname" class="form-label">Prénom</label>
+						<input class="form-input " type="text" name="firstname"  id="firstname" required>
+					</div>
+					<div class="form-field">
+						<label for="lastname" class="form-label">Nom</label>
+						<input class="form-input " type="text" name="lastname"  id="lastname" required>
+					</div>
+					<div class="form-field">
+						<label for="email" class="form-label">Email</label>
+						<input class="form-input " type="email" name="lastname"  id="email" required>
+					</div>
+					<div class="form-field">
+						<label for="message" class="form-label">Votre message</label>
+						<input class="form-text-area " id="message">
+					</div>
+				</form>
+				<footer class="form-submit">
+					<button type="submit" id="form-submit-button"  class="form-submit-button ">Envoyer</button>
+				</footer>
+			</div>
+		</div>            
+		<div class="photographer-page__gallery" id="gallery"></div>
+		<div id="modale__lightbox">
+			<button class="lightbox__close"><i class="fas fa-times"></i></button>
+			<button class="lightbox__previous"><i role="button" class="fas fa-chevron-left"></i></button>
+			<button class="lightbox__next"><i role="button" class="fas fa-chevron-right"></i></button>
+			<div class="lightbox__container">
+	    	</div>
+		</div>
+		<footer class="footer-photographer" id="footer__photographer"></footer>
+	</body>
+    <script src="Photographer.js" ></script>
+    <script src="PagePhotographer.js" ></script>
+    <script src="form.js" ></script>
+	<script src="Media/MediaFactory.js" ></script>
+	<script src="Media/Image.js" ></script>
+	<script src="Media/Video.js" ></script>
+	<script src="Lightbox.js" ></script>
+	<script src="https://kit.fontawesome.com/e81fede9df.js" crossorigin="anonymous"></script>
+</html>
