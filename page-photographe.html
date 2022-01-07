@@ -24,13 +24,10 @@
 
 			<div class="photographer-page__sort">
 				<label for="">Trier par</label>
-				<select
-					id="photographer-page__sort__select"
-					aria-label="Trier par"
-				>
-					<option value="popularity" class="">Popularité</option>
-					<option value="date" class="">Date</option>
-					<option value="title" class="">Titre</option>
+				<select id="photographer-page__sort__select" aria-label="Trier par">
+					<option value="popularity" class="popularity">Popularité</option>
+					<option value="date" class="date">Date</option>
+					<option value="title" class="title">Titre</option>
 				</select>
 			</div>
 
@@ -40,29 +37,28 @@
 			<div class="modal-content">
 				<header class="modal-header">
 					<h1 class="modal-header-title">Contactez-moi</h1>
-					<span class="close">&times;</span>
+					<span id="name"></span>
 				</header>
 				<form class="form">
-					<div class="form-field">
+					<div class="form-field form-field-1">
 						<label for="firstname" class="form-label">Prénom</label>
-						<input class="form-input " type="text" name="firstname"  id="firstname" required>
+						<input class="form-input" id="firstname" type="text" name="firstname" required>
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-2">
 						<label for="lastname" class="form-label">Nom</label>
-						<input class="form-input " type="text" name="lastname"  id="lastname" required>
+						<input class="form-input" id="lastname" type="text" name="lastname" required>
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-3">
 						<label for="email" class="form-label">Email</label>
-						<input class="form-input " type="email" name="lastname"  id="email" required>
+						<input class="form-input" id="email" type="email" name="lastname" required>
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-4">
 						<label for="message" class="form-label">Votre message</label>
-						<input class="form-text-area " id="message">
+						<textarea class="form-text-area" ></textarea>
 					</div>
+					<button class="form-submit-button" type="submit">Envoyer</button>
 				</form>
-				<footer class="form-submit">
-					<button type="submit" id="form-submit-button"  class="form-submit-button ">Envoyer</button>
-				</footer>
+				<button class="close"><i class="fas fa-times"></i></button>
 			</div>
 		</div>            
 		<div class="photographer-page__gallery" id="gallery"></div>

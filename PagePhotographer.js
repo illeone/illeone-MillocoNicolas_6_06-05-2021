@@ -22,6 +22,11 @@ const getPhotographer = (data) => {
 
 const headerPhotographer = (header) => {
     const thePhotographe = document.getElementById("photographer-page");
+    const form = document.getElementById("name");
+    form.innerHTML = header[0].name
+    console.log(header);
+    console.log(header.name);
+
 
 	header.forEach((photoId) => {
 		let photo = new Photographer(photoId);
@@ -67,7 +72,7 @@ const mediaGallery = (gallery) => {
 		let medias = new MediaFactory(media);
 		elGallery.innerHTML += medias.createHtmlMedia();
         // creation slider
-        lightboxGallery.innerHTML = medias.createLightbox();
+        lightboxGallery.innerHTML += medias.createLightbox();
 	}); 
 
     links.onclick = function (e) {
@@ -78,8 +83,19 @@ const mediaGallery = (gallery) => {
     close.onclick = function () {
         modale.style.display = "none";
     };
+
+    addImageEvent();
     
 };
+
+const addImageEvent = () => {
+    const allImg = document.querySelectorAll(".photographer-page__gallery__media");
+    allImg.forEach(function (e) {
+        e.addEventListener("click", function () {
+            console.log("image");
+        });
+    });
+}
 
 const installChangehandler = (gallery) => {
     document.addEventListener("change",(type) => {
@@ -126,7 +142,7 @@ const init = async() => {
     mediaGallery(sorted);
     installChangehandler(sorted);
     updateLikes();
-    reloadLikes()
+    reloadLikes();
   };
   init();
 

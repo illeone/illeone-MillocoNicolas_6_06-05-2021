@@ -39,8 +39,7 @@ class Photographer{
                         <ul class="photographer-page__taglist">${this.tags.map(tag => 
                             `<li  class="photographer-page__tags  filtre_nav_head">#${tag}</li>`).join(" ")}</ul>
                     </div>
-                    <button class="photographer-page__contact__button tabindex="3" onclick="displayPhotographerModale()" >Contactez-moi
-                    </button>
+                    <button class="photographer-page__contact__button" tabindex="3" onclick="displayPhotographerModale()">Contactez-moi</button>
                     <img class="photographer-page__vignette" src="photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photographie de profil de ${this.name}">
                 </div>
                 <div class="jaja">

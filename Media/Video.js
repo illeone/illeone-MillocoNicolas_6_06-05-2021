@@ -25,7 +25,7 @@ class Video {
 	}
     createLightbox() {
         return `
-        <div class="lightbox">
+        <div class="lightbox hide">
                 <img class="lightbox__media" src="Photos/media/${this.imgSrc}"</img>
                 <div class="lightbox__media__footer">
                     <figcaption class="lightbox__media__footer__figcaption">${this.imgTitle}</figcaption>
