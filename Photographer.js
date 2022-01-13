@@ -44,7 +44,7 @@ class Photographer{
                 </div>
                 <div class="jaja">
                     <aside class="photographer-page__footer__aside">
-                        <p class="photographer-page__footer__aside__total-likes">${this.userReloadLikes}</p>
+                        <p class="photographer-page__footer__aside__total-likes"></p>
                         <i class="heart-card fas fa-heart"></i>
                      </aside>
                     <p class="photographer-page__footer__price" tabindex="3">${this.price}€/jour</p>

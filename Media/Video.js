@@ -15,10 +15,10 @@ class Video {
             </video>
             <div class="photographer-page__gallery__media__footer">
                 <figcaption class="photographer-page__gallery__media__footer__figcaption">${this.videoTitle}</figcaption>
-                <aside class="photographer-page__gallery__media__footer__like">
-                    <p class="photographer-page__gallery__media__footer__like__counter">${this.videoLikes}</p>
-                    <button class="photographer-page__gallery__media__footer__like__button"</button>
-                </aside>
+                <div class="photographer-page__gallery__media__footer__like">
+                        <p class="photographer-page__gallery__media__footer__like__counter">${this.videoLikes}</p>
+                        <button class="photographer-page__gallery__media__footer__like__button far fa-heart"</button>
+                    </div>
             </div>
         </figure>
         `;
@@ -26,9 +26,9 @@ class Video {
     createLightbox() {
         return `
         <div class="lightbox hide">
-                <img class="lightbox__media" src="Photos/media/${this.imgSrc}"</img>
+                <img class="lightbox__media" src="Photos/media/${this.videoSrc}"</img>
                 <div class="lightbox__media__footer">
-                    <figcaption class="lightbox__media__footer__figcaption">${this.imgTitle}</figcaption>
+                    <figcaption class="lightbox__media__footer__figcaption">${this.videoTitle}</figcaption>
                 </div>
         </div>
         `;

@@ -1,6 +1,6 @@
 class Image {
 
-	constructor(data,elemList, currentIndex) {
+	constructor(data,) {
 		this.imgSrc = data.image;
 		this.imgTitle = data.title;
 		this.imgPhotographerId = data.photographerId;

@@ -15,7 +15,7 @@
 		modal.style.transition = "0.8s";
 	});
 
-	close.addEventListener("click", (e) => {
+	close.addEventListener("click", () => {
 		// modal.style.display = "none";
 		
 		modal.style.transition = "0.8s";

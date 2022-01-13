@@ -17,19 +17,47 @@
 		
 	    </a>
 		<header class="header">
-            <section id="photographer-page" aria-label="">       
+            <section id="photographer-page">       
             </section>
 		</header>
 		<main class="main">
 
-			<div class="photographer-page__sort">
+			<!-- <div class="photographer-page__sort">
 				<label for="">Trier par</label>
 				<select id="photographer-page__sort__select" aria-label="Trier par">
 					<option value="popularity" class="popularity">Popularité</option>
 					<option value="date" class="date">Date</option>
 					<option value="title" class="title">Titre</option>
 				</select>
-			</div>
+			</div> -->
+			<div class="custom-select">
+				<ul class="select">
+				  <li id="select__hover">
+					<input class="select_close" type="radio" name="customselect" id="customselect-close" value="popularity" />
+					<span class="select_label select_label-placeholder">Popularité</span>
+				  </li>
+			  
+				  <li class="select_items">
+					<input class="select_expand" type="radio" name="customselect" id="customselect-opener" />
+					<label class="select_closeLabel" for="customselect-close"></label>
+			  
+					<ul class="select_options">
+					  <li class="select_option">
+						<input class="select_input" type="radio" name="customselect" id="customselect-date" value="date" />
+						<label class="select_label" for="customselect-date"><span class="border-top">Date</span></label>
+					  </li>
+			  
+					  <li class="select_option">
+						<input class="select_input" type="radio" name="customselect" id="customselect-titre" value="title" />
+						<label class="select_label" for="customselect-titre"><span class="border-top">Titre</span></label>
+					  </li>
+			  
+					</ul>
+			  
+					<label class="select_expandLabel" for="customselect-opener"></label>
+				  </li>
+				</ul>
+			  </div>
 
 		</main>
         
@@ -53,8 +81,8 @@
 						<input class="form-input" id="email" type="email" name="lastname" required>
 					</div>
 					<div class="form-field form-field-4">
-						<label for="message" class="form-label">Votre message</label>
-						<textarea class="form-text-area" ></textarea>
+						<label for="message-text" class="form-label">Votre message</label>
+						<textarea class="form-text-area" id="message-text"></textarea>
 					</div>
 					<button class="form-submit-button" type="submit">Envoyer</button>
 				</form>
@@ -62,15 +90,17 @@
 			</div>
 		</div>            
 		<div class="photographer-page__gallery" id="gallery"></div>
+
 		<div id="modale__lightbox">
 			<button class="lightbox__close"><i class="fas fa-times"></i></button>
-			<button class="lightbox__previous"><i role="button" class="fas fa-chevron-left"></i></button>
-			<button class="lightbox__next"><i role="button" class="fas fa-chevron-right"></i></button>
+			<button class="lightbox__previous"><i class="fas fa-chevron-left"></i></button>
+			<button class="lightbox__next"><i class="fas fa-chevron-right"></i></button>
 			<div class="lightbox__container">
 	    	</div>
 		</div>
+
 		<footer class="footer-photographer" id="footer__photographer"></footer>
-	</body>
+
     <script src="Photographer.js" ></script>
     <script src="PagePhotographer.js" ></script>
     <script src="form.js" ></script>
@@ -79,4 +109,6 @@
 	<script src="Media/Video.js" ></script>
 	<script src="Lightbox.js" ></script>
 	<script src="https://kit.fontawesome.com/e81fede9df.js" crossorigin="anonymous"></script>
+
+</body>
 </html>

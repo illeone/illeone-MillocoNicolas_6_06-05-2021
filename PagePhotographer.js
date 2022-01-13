@@ -41,6 +41,79 @@ const getPhotographerGallery = (data) => {
     });
 };
 
+const mediaGallery = (gallery) => {
+    const elGallery = document.getElementById("gallery");
+    const lightboxGallery = document.querySelector(".lightbox__container");
+
+	gallery.forEach((media) => {
+		let medias = new MediaFactory(media);
+		elGallery.innerHTML += medias.createHtmlMedia();
+        // creation slider
+        lightboxGallery.innerHTML += medias.createLightbox();
+	}); 
+
+    addImageEvent();
+   
+};
+
+const addImageEvent = () => {
+    const allImg = document.querySelectorAll(".photographer-page__gallery__media");
+    let photoLightbox = document.querySelectorAll(".lightbox__media");
+    const modale = document.getElementById("modale__lightbox");
+    const close = document.querySelector(".lightbox__close");
+    const next = document.querySelector(".lightbox__next");
+    const items = document.querySelectorAll(".lightbox__media");
+    let currentImage;
+    let count = 0;
+    const nbSlide = photoLightbox.length;
+    // console.log(photoLightbox.length);
+    
+    allImg.forEach( (img) => {
+        img.addEventListener("click", (event) => {  
+            currentImage = event.currentTarget.getAttribute("src"); 
+            photoLightbox.forEach((img) => {
+                if (currentImage == img.getAttribute("src")) {
+                    console.log(img.src);
+                     img.parentNode.classList.remove("hide");
+                     modale.style.display = "block"; 
+
+                     close.addEventListener("click", (e) => {
+                            modale.style.display = "none";
+                            img.parentNode.classList.add("hide");
+                    });
+                    next.forEach(btn => {
+                        btn.addEventListener("click" , (e) => {
+                            e.stopPropagation();
+                            console.log(e.currentTarget.src)
+                        })
+                    });
+                };
+            });
+            
+        });
+    });
+    slide()
+};
+
+function slide(){
+const next = document.querySelector(".lightbox__next");
+let photoLightbox = document.querySelectorAll(".lightbox__media");
+const nbSlide = photoLightbox.length;
+console.log(photoLightbox.length);
+let count = 0;
+console.log(count);
+
+next.addEventListener("click", () => {
+    if( count < nbSlide - 1){
+        count++;
+    } else {
+        count = 0;
+    }
+})
+};
+
+
+
 const sortMedia = (gallery, type) => {
 	switch (type) {
 		case "popularity":
@@ -59,78 +132,51 @@ const sortMedia = (gallery, type) => {
 			});
 	}
 };
-
-const mediaGallery = (gallery) => {
-    const elGallery = document.getElementById("gallery");
-    const lightboxGallery = document.querySelector(".lightbox__container");
-
-    const modale = document.getElementById("modale__lightbox");
-    const close = document.querySelector(".lightbox__close");
-    const links = document.querySelector(".photographer-page__gallery");
-
-	gallery.forEach((media) => {
-		let medias = new MediaFactory(media);
-		elGallery.innerHTML += medias.createHtmlMedia();
-        // creation slider
-        lightboxGallery.innerHTML += medias.createLightbox();
-	}); 
-
-    links.onclick = function (e) {
-		modale.style.display = "block";
-        
-    };
-
-    close.onclick = function () {
-        modale.style.display = "none";
-    };
-
-    addImageEvent();
-    
-};
-
-const addImageEvent = () => {
-    const allImg = document.querySelectorAll(".photographer-page__gallery__media");
-    allImg.forEach(function (e) {
-        e.addEventListener("click", function () {
-            console.log("image");
-        });
-    });
-}
-
-const installChangehandler = (gallery) => {
+const installChangeHandler = (gallery) => {
     document.addEventListener("change",(type) => {
         const elementGallery = document.querySelector(".photographer-page__gallery");
         elementGallery.innerHTML = "";
         const option = sortMedia(gallery, type.target.value);
         mediaGallery(option);
+        updateLikes();
     });
 }
 
-function updateLikes() {
-    const likes = document.querySelectorAll(".photographer-page__gallery__media__footer__like")
-    likes.forEach(function (e) {
-        e.addEventListener("click", function () {
-            let elementCounter = e.querySelector(".photographer-page__gallery__media__footer__like__counter");  
-            let likeSum = Number(elementCounter.textContent);
-            const liked = e.dataset.liked === "true";
-            e.dataset.liked = !liked;
-            elementCounter.innerHTML = likeSum + (liked ? -1 : 1);
-    });
-});
-}
-
-function reloadLikes() {
-    let totalLike = document.querySelector('.photographer-page__footer__aside__total-likes')
+const reloadLikes = () => {
+    let totalLike = document.querySelector(".photographer-page__footer__aside__total-likes")
     let LikesMedia = document.querySelectorAll(".photographer-page__gallery__media__footer__like__counter");
     let likeSum = 0
     LikesMedia.forEach(function (like) {
         let likeUnit = Number(like.textContent)
         likeSum += likeUnit
     });
-    totalLike.innerHTML = likeSum
-    // return likeSum
+    totalLike.innerHTML = likeSum;
+    return likeSum;   
 }
 
+const updateLikes = () => {
+    const likes = document.querySelectorAll(".photographer-page__gallery__media__footer__like")
+    likes.forEach(function (e) {
+        e.addEventListener("click", function (i) {
+            let elementCounter = e.querySelector(".photographer-page__gallery__media__footer__like__counter"); 
+            let heartButton = e.querySelector(".fa-heart"); 
+            let likeSum = Number(elementCounter.textContent);
+            const liked = e.dataset.liked === "true";
+            e.dataset.liked = !liked;
+            elementCounter.innerHTML = likeSum + (liked ? -1 : 1);
+
+            reloadLikes();
+
+            if (liked) {
+                heartButton.classList.remove("fas");
+				heartButton.classList.add("far");			
+			} else if (!liked) {
+                heartButton.classList.remove("far");
+				heartButton.classList.add("fas");				
+			}
+    });
+});
+}
 
 const init = async() => {
     const data = await loadData();
@@ -140,9 +186,9 @@ const init = async() => {
     const gallery = getPhotographerGallery(data);
     const sorted = sortMedia(gallery);
     mediaGallery(sorted);
-    installChangehandler(sorted);
-    updateLikes();
+    installChangeHandler(sorted);
     reloadLikes();
+    updateLikes();
   };
   init();
 
