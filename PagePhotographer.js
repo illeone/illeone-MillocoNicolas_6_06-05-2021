@@ -24,8 +24,8 @@ const headerPhotographer = (header) => {
     const thePhotographe = document.getElementById("photographer-page");
     const form = document.getElementById("name");
     form.innerHTML = header[0].name
-    console.log(header);
-    console.log(header.name);
+    // console.log(header);
+    // console.log(header.name);
 
 
 	header.forEach((photoId) => {
@@ -56,24 +56,30 @@ const mediaGallery = (gallery) => {
    
 };
 
-const addImageEvent = () => {
+
+const addImageEvent = (e) => {
     const allImg = document.querySelectorAll(".photographer-page__gallery__media");
     let photoLightbox = document.querySelectorAll(".lightbox__media");
     const modale = document.getElementById("modale__lightbox");
     const close = document.querySelector(".lightbox__close");
     const next = document.querySelector(".lightbox__next");
-    const items = document.querySelectorAll(".lightbox__media");
+    const previous = document.querySelector(".lightbox__previous");
     let currentImage;
-    let count = 0;
-    const nbSlide = photoLightbox.length;
+    const Arr = Array.from(photoLightbox);
+    // console.log(photoLightbox);
     // console.log(photoLightbox.length);
-    
+
     allImg.forEach( (img) => {
         img.addEventListener("click", (event) => {  
             currentImage = event.currentTarget.getAttribute("src"); 
             photoLightbox.forEach((img) => {
                 if (currentImage == img.getAttribute("src")) {
                     console.log(img.src);
+                    // console.log(currentImage);
+
+                    activeImage = Arr.indexOf(img);
+                    console.log(activeImage)
+
                      img.parentNode.classList.remove("hide");
                      modale.style.display = "block"; 
 
@@ -81,36 +87,66 @@ const addImageEvent = () => {
                             modale.style.display = "none";
                             img.parentNode.classList.add("hide");
                     });
-                    next.forEach(btn => {
-                        btn.addEventListener("click" , (e) => {
-                            e.stopPropagation();
-                            console.log(e.currentTarget.src)
-                        })
-                    });
+                    
+                    next.addEventListener("click", (e) => {
+                        
+                        console.log("right")
+                        console.log(photoLightbox[activeImage].src)
+                        console.log(activeImage)
+                        img.parentNode.classList.add("hide");
+
+                            if( activeImage < photoLightbox.length ){
+                                activeImage++;
+                                }
+
+                        // photoLightbox[activeImage].parentNode.classList.remove("hide");
+
+                    })
+                    // previous.addEventListener("click", (e) => {
+                        
+                    //     // modale.innerHTML = photoLightbox[1].src;
+                    //     console.log("left")
+                    //     // console.log(Arr[1].src)
+                    //     console.log(photoLightbox[activeImage].src)
+                    //     console.log(activeImage)
+                    //     img.parentNode.classList.add("hide");
+
+
+                    //         if( activeImage < photoLightbox.length ){
+                    //             activeImage--;
+                    //             }
+                    //     photoLightbox[activeImage].parentNode.classList.remove("hide");
+                    //         // img.parentNode.classList.remove("hide");
+                        
+                            
+                    //         // img.node.nextSibling
+
+                    //         // document.querySelector(".lightbox__next").nextElementSibling.innerHTML
+                    // })
                 };
             });
             
         });
     });
-    slide()
 };
 
-function slide(){
-const next = document.querySelector(".lightbox__next");
-let photoLightbox = document.querySelectorAll(".lightbox__media");
-const nbSlide = photoLightbox.length;
-console.log(photoLightbox.length);
-let count = 0;
-console.log(count);
 
-next.addEventListener("click", () => {
-    if( count < nbSlide - 1){
-        count++;
-    } else {
-        count = 0;
-    }
-})
-};
+// function slide(){
+// const next = document.querySelector(".lightbox__next");
+// let photoLightbox = document.querySelectorAll(".lightbox__media");
+// const nbSlide = photoLightbox.length;
+// console.log(photoLightbox.length);
+// let count = 0;
+// console.log(count);
+
+// next.addEventListener("click", () => {
+//     if( count < nbSlide - 1){
+//         count++;
+//     } else {
+//         count = 0;
+//     }
+// })
+// };
 
 
 
