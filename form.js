@@ -1,4 +1,4 @@
- function displayPhotographerModale() {
+ let displayPhotographerModale = () => {
 	const modal = document.getElementById("contact__modal");
 	const btn = document.querySelector(".photographer-page__contact__button");
 	const close = document.querySelector(".close");
@@ -6,8 +6,7 @@
 	const lastNameInput = document.getElementById("lastname");
 	const emailInput = document.getElementById("email");
 	const messageInput = document.getElementById("message");
-	const submitButton = document.getElementById("form-submit-button");
-
+	const submitButton = document.querySelector(".form-submit-button");
 
 	btn.addEventListener("click", () => {
 		// modal.style.display = "block";
@@ -28,8 +27,17 @@
 	submitButton.addEventListener("click", () => {
 		modal.style.display = "none";
 	});
+
+	const form = document.querySelector(".form");
+
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+		console.log("Prénom:", e.target.firstname.value);
+		console.log("Nom:", e.target.lastname.value);
+		console.log("Email:", e.target.email.value);
+		// console.log('Message:', e.target.message.value)
+	});
 }
-displayPhotographerModale();
 
     
 
