@@ -12,6 +12,8 @@
 		// modal.style.display = "block";
 		modal.style.transform = "translateY(0px)";
 		modal.style.transition = "0.8s";
+		console.log("Prénom:");
+
 	});
 
 	close.addEventListener("click", () => {
@@ -24,20 +26,33 @@
 	});
 	
 
-	submitButton.addEventListener("click", () => {
+	submitButton.addEventListener("click", (e) => {
+		e.preventDefault();
+		console.log("Prénom:");
+		// console.log("Nom:", e.target.lastname.value);
+		// console.log("Email:", e.target.email.value);
 		modal.style.display = "none";
 	});
 
 	const form = document.querySelector(".form");
 
-	form.addEventListener("submit", (e) => {
-		e.preventDefault();
-		console.log("Prénom:", e.target.firstname.value);
-		console.log("Nom:", e.target.lastname.value);
-		console.log("Email:", e.target.email.value);
-		// console.log('Message:', e.target.message.value)
+	// form.addEventListener("submit", (e) => {
+	// 	e.preventDefault();
+	// 	console.log("Prénom:", e.target.firstname.value);
+	// 	console.log("Nom:", e.target.lastname.value);
+	// 	console.log("Email:", e.target.email.value);
+	// 	modal.style.display = "none";
+	// 	// console.log('Message:', e.target.message.value)
+	// });
+
+	document.addEventListener('keydown', function(e) {
+		let keyCode = e.key;
+		if (keyCode === "Escape") {
+			modal.style.transform = "translateY(700px)";
+			// modal.style.display = "none";
+		}
 	});
-}
+};
 
     
 

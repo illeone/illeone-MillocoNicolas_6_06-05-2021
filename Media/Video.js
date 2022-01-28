@@ -10,15 +10,15 @@ class Video {
 	createHtmlMedia() {
 		return `
         <figure class="photographer-page__gallery">
-            <video controls class="photographer-page__gallery__media tabindex="2">
-                <source src="Photos/media/${this.videoSrc}"/>
-            </video>
+            <a href="#" role="button" class="media__link videoLogo">
+                <video class="photographer-page__gallery__media tabindex="2" src="Photos/media/${this.videoSrc}"></video>
+            </a>
             <div class="photographer-page__gallery__media__footer">
                 <figcaption class="photographer-page__gallery__media__footer__figcaption">${this.videoTitle}</figcaption>
                 <div class="photographer-page__gallery__media__footer__like">
                         <p class="photographer-page__gallery__media__footer__like__counter">${this.videoLikes}</p>
                         <button class="photographer-page__gallery__media__footer__like__button far fa-heart"</button>
-                    </div>
+                 </div>
             </div>
         </figure>
         `;
@@ -26,7 +26,7 @@ class Video {
     createLightbox() {
         return `
         <div class="lightbox hide">
-                <img class="lightbox__media" src="Photos/media/${this.videoSrc}"</img>
+                <video controls class="lightbox__media" src="Photos/media/${this.videoSrc}"></video>
                 <div class="lightbox__media__footer">
                     <figcaption class="lightbox__media__footer__figcaption">${this.videoTitle}</figcaption>
                 </div>

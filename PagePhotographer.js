@@ -95,56 +95,132 @@ const addImageEvent = (e) => {
         });
     });     
 
-    next.addEventListener("click", () => {
 
+    previous.addEventListener("click", () => {
                         
+        console.log("left");
+        activeImage--;
+        console.log(activeImage);
+
+        let previousMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling;
+        console.log(document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling);
+
+        photoLightbox.forEach((img) => {
+            img.parentNode.classList.add("hide");
+        }); 
+        // previousMedia.classList.remove("hide");
+        
+        if( activeImage < 0 ){
+            console.log(photoLightbox[0])
+            console.log("afficher dernière image")
+            photoLightbox[9].parentNode.classList.remove("hide");
+            activeImage = 9;
+            // return document.querySelector(".lightbox__container div.lightbox:last-child");
+            } else{
+                previousMedia.classList.remove("hide");
+            }
+    })
+
+    document.addEventListener('keydown', function(e) {
+        let keyCode = e.key;
+        if (keyCode === "Escape") {
+            modale.style.display = "none";
+        }
+    });
+    droite();
+    };
+
+
+let droite = () => {
+    let photoLightbox = document.querySelectorAll(".lightbox__media");
+    const next = document.querySelector(".lightbox__next");
+
+    next.addEventListener("click", () => {
+        
+              
         console.log("right");
+        activeImage++;
+        console.log(activeImage);
         
         // let currentMedia = photoLightbox[activeImage].src;
         // img.parentNode.classList.add("hide");
         let nextMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").nextElementSibling;
-        console.log(document.querySelector(".lightbox__container div.lightbox:not(.hide)").nextElementSibling);
         // console.log(nextMedia);
         // photoLightbox = nextMedia
 
         photoLightbox.forEach((img) => {
             img.parentNode.classList.add("hide");
         });
-        nextMedia.classList.remove("hide");
+        
 
-        // activeImage = 0;
-            if( nextMedia > photoLightbox.length){
-                nextMedia = [0];
+    
+        if( activeImage == photoLightbox.length ){
+            console.log(photoLightbox[0])
+            console.log("afficher premiere image")
+            photoLightbox[0].parentNode.classList.remove("hide");
+            activeImage = 0;
+            // return document.querySelector(".lightbox__container div.lightbox:first-child");
+            } else{
+                nextMedia.classList.remove("hide");
             }
-            // } else {
-            //     (activeImage > photoLightbox.length)
-            //     activeImage--;
+    });
+    keyRight();
+}
 
-			// }
-
-
-        // photoLightbox[activeImage].parentNode.classList.remove("hide");
+let keyRight = () => {
+    let photoLightbox = document.querySelectorAll(".lightbox__media");
+document.addEventListener('keydown', function(e) {
+    let keyCode = e.key;
+    if (keyCode === "ArrowRight") {
+        console.log("right");
+        activeImage++;
         console.log(activeImage);
-    })
-
-    previous.addEventListener("click", () => {
-                        
-        console.log("left");
-        let nextMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling;
-        console.log(document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling);
+        
+        // let currentMedia = photoLightbox[activeImage].src;
+        // img.parentNode.classList.add("hide");
+        let nextMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").nextElementSibling;
+        // console.log(nextMedia);
+        // photoLightbox = nextMedia
 
         photoLightbox.forEach((img) => {
             img.parentNode.classList.add("hide");
         });
-        nextMedia.classList.remove("hide");
+        
 
-            // if( activeImage < photoLightbox.length ){
-                activeImage--;
-            //     }
+    
+        if( activeImage == photoLightbox.length ){
+            console.log(photoLightbox[0])
+            console.log("afficher premiere image")
+            photoLightbox[0].parentNode.classList.remove("hide");
+            activeImage = 0;
+            // return document.querySelector(".lightbox__container div.lightbox:first-child");
+            } else{
+                nextMedia.classList.remove("hide");
+            }
+    }
+    });
+}
 
-        console.log(activeImage);
-    })
-};
+    // keyControl = (e) => {
+    //     switch (e.key) {
+    //         case 'ArrowLeft':
+    //             previous();
+    //             break;
+    //         case 'ArrowRight':
+    //             this.nextMedia()
+    //             break;
+    //         case 'Escape':
+    //             this.close()
+    //         break;
+    //         case 'Tab':
+    //             this.trackFocus(e)
+    //         break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
+
 
 const sortMedia = (gallery, type) => {
 	switch (type) {
@@ -167,7 +243,9 @@ const sortMedia = (gallery, type) => {
 const installChangeHandler = (gallery) => {
     document.addEventListener("change",(type) => {
         const elementGallery = document.querySelector(".photographer-page__gallery");
+        const lightboxGallery = document.querySelector(".lightbox__container");
         elementGallery.innerHTML = "";
+        lightboxGallery.innerHTML = "";
         const option = sortMedia(gallery, type.target.value);
         mediaGallery(option);
         updateLikes();
