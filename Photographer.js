@@ -15,8 +15,8 @@ class Photographer{
     createHTML() {
 
         return `
-        <div class= "photographe">
-                <a class="photographer__profil" href="page-photographe.html?id=${this.id}">
+        <div class= "photographe"  >
+                <a class="photographer__profil" href="page-photographe.html?id=${this.id}" aria-label="lien vers le profil de ${this._name} situé à ${this.country} avec un tarif journalier de ${this._price} euro. Spécialisé dans ${this._tags} avec comme devise ${this._tagline}">
                     <img class="vignette" src="photos/ID/${this.portrait}" alt="">
                     <h2 class="photographer__profil__name">${this.name}</h2>
                 </a>
