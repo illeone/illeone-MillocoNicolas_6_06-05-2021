@@ -85,121 +85,85 @@ const addImageEvent = (e) => {
             });
             
         });
-    });
+    });   
 
-    close.addEventListener("click", () => {
-        modale.style.display = "none";
+    next.addEventListener("click", onNextMedia);
+    previous.addEventListener("click", onPreviousMedia);
+    close.addEventListener("click", onCloseMedia)
 
-        photoLightbox.forEach((img) => {
-            img.parentNode.classList.add("hide");
-        });
-    });     
+    keyControl();
+};
 
+let onNextMedia = () => {
 
-    previous.addEventListener("click", () => {
-                        
-        console.log("left");
-        activeImage--;
-        console.log(activeImage);
-
-        let previousMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling;
-        console.log(document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling);
-
-        photoLightbox.forEach((img) => {
-            img.parentNode.classList.add("hide");
-        }); 
-        // previousMedia.classList.remove("hide");
-        
-        if( activeImage < 0 ){
-            console.log(photoLightbox[0])
-            console.log("afficher dernière image")
-            photoLightbox[9].parentNode.classList.remove("hide");
-            activeImage = 9;
-            // return document.querySelector(".lightbox__container div.lightbox:last-child");
-            } else{
-                previousMedia.classList.remove("hide");
-            }
-    })
-
-    document.addEventListener('keydown', function(e) {
-        let keyCode = e.key;
-        if (keyCode === "Escape") {
-            modale.style.display = "none";
-        }
-    });
-    droite();
-    };
-
-
-let droite = () => {
     let photoLightbox = document.querySelectorAll(".lightbox__media");
-    const next = document.querySelector(".lightbox__next");
-
-    next.addEventListener("click", () => {
         
               
-        console.log("right");
-        activeImage++;
-        console.log(activeImage);
+    console.log("right");
+    activeImage++;
+    console.log(activeImage);
         
-        // let currentMedia = photoLightbox[activeImage].src;
-        // img.parentNode.classList.add("hide");
-        let nextMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").nextElementSibling;
-        // console.log(nextMedia);
-        // photoLightbox = nextMedia
+    // let currentMedia = photoLightbox[activeImage].src;
+    // img.parentNode.classList.add("hide");
+    let nextMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").nextElementSibling;
+    // console.log(nextMedia);
+    // photoLightbox = nextMedia
 
-        photoLightbox.forEach((img) => {
-            img.parentNode.classList.add("hide");
-        });
-        
-
-    
-        if( activeImage == photoLightbox.length ){
-            console.log(photoLightbox[0])
-            console.log("afficher premiere image")
-            photoLightbox[0].parentNode.classList.remove("hide");
-            activeImage = 0;
-            // return document.querySelector(".lightbox__container div.lightbox:first-child");
-            } else{
-                nextMedia.classList.remove("hide");
-            }
+    photoLightbox.forEach((img) => {
+        img.parentNode.classList.add("hide");
     });
-    keyRight();
-}
-
-let keyRight = () => {
-    let photoLightbox = document.querySelectorAll(".lightbox__media");
-document.addEventListener('keydown', function(e) {
-    let keyCode = e.key;
-    if (keyCode === "ArrowRight") {
-        console.log("right");
-        activeImage++;
-        console.log(activeImage);
-        
-        // let currentMedia = photoLightbox[activeImage].src;
-        // img.parentNode.classList.add("hide");
-        let nextMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").nextElementSibling;
-        // console.log(nextMedia);
-        // photoLightbox = nextMedia
-
-        photoLightbox.forEach((img) => {
-            img.parentNode.classList.add("hide");
-        });
-        
-
     
-        if( activeImage == photoLightbox.length ){
-            console.log(photoLightbox[0])
-            console.log("afficher premiere image")
-            photoLightbox[0].parentNode.classList.remove("hide");
-            activeImage = 0;
-            // return document.querySelector(".lightbox__container div.lightbox:first-child");
-            } else{
-                nextMedia.classList.remove("hide");
-            }
+    if( activeImage == photoLightbox.length ){
+        console.log(photoLightbox[0])
+        console.log("afficher premiere image")
+        photoLightbox[0].parentNode.classList.remove("hide");
+        activeImage = 0;
+        // return document.querySelector(".lightbox__container div.lightbox:first-child");
+    } else{
+        nextMedia.classList.remove("hide");
     }
-    });
+};
+
+let onPreviousMedia = () => {
+
+    let photoLightbox = document.querySelectorAll(".lightbox__media");
+    let lastLightbox = photoLightbox.length -1;
+
+    console.log("left");
+    activeImage--;
+    console.log(activeImage);
+
+    let previousMedia = document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling;
+    console.log(document.querySelector(".lightbox__container div.lightbox:not(.hide)").previousElementSibling);
+
+    photoLightbox.forEach((img) => {
+        img.parentNode.classList.add("hide");
+    }); 
+    // previousMedia.classList.remove("hide");
+        
+    if( activeImage < 0 ){
+        console.log(photoLightbox[0])
+        console.log("afficher dernière image")
+        photoLightbox[lastLightbox].parentNode.classList.remove("hide");
+        activeImage = lastLightbox;
+        // return document.querySelector(".lightbox__container div.lightbox:last-child");
+    } else{
+        previousMedia.classList.remove("hide");
+    }
 }
+
+let onCloseMedia = () => {
+    const modale = document.getElementById("modale__lightbox");
+    let photoLightbox = document.querySelectorAll(".lightbox__media");
+
+    modale.style.display = "none";
+
+    photoLightbox.forEach((img) => {
+        img.parentNode.classList.add("hide");
+    });  
+}
+
+
 
     // keyControl = (e) => {
     //     switch (e.key) {
