@@ -163,7 +163,23 @@ let onCloseMedia = () => {
     });  
 }
 
+let keyControl = () => {
+    const modale = document.getElementById("modale__lightbox");
 
+    document.addEventListener('keydown', function(e) {
+        switch (e.key) {
+            case "ArrowRight":
+                onNextMedia();
+                break;
+            case "ArrowLeft":
+                onPreviousMedia();
+                break;
+            case "Escape":
+                onCloseMedia();
+                break;
+        }
+    });
+}
 
     // keyControl = (e) => {
     //     switch (e.key) {
