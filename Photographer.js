@@ -16,7 +16,7 @@ class Photographer{
 
         return `
         <div class= "photographe"  >
-                <a class="photographer__profil" href="page-photographe.html?id=${this.id}" aria-label="lien vers le profil de ${this._name} situé à ${this.country} avec un tarif journalier de ${this._price} euro. Spécialisé dans ${this._tags} avec comme devise ${this._tagline}">
+                <a class="photographer__profil" href="page-photographe.html?id=${this.id}" aria-label="lien vers le profil de ${this.name} situé à ${this.city} avec un tarif journalier de ${this.price} euro. Spécialisé dans ${this.tags} avec comme devise ${this.tagline}">
                     <img class="vignette" src="photos/ID/${this.portrait}" alt="">
                     <h2 class="photographer__profil__name">${this.name}</h2>
                 </a>
@@ -39,12 +39,12 @@ class Photographer{
                         <ul class="photographer-page__taglist">${this.tags.map(tag => 
                             `<li  class="photographer-page__tags  filtre_nav_head">#${tag}</li>`).join(" ")}</ul>
                     </div>
-                    <button class="photographer-page__contact__button" tabindex="3" onclick="displayPhotographerModale()">Contactez-moi</button>
+                    <button class="photographer-page__contact__button" tabindex="3">Contactez-moi</button>
                     <img class="photographer-page__vignette" src="photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photographie de profil de ${this.name}">
                 </div>
-                <div class="jaja">
+                <div class="jaja" aria-label="carte info de ${this.name} avec son nombre total de j'aime et son tarif journalier">
                     <aside class="photographer-page__footer__aside">
-                        <p class="photographer-page__footer__aside__total-likes"></p>
+                        <p class="photographer-page__footer__aside__total-likes" aria-label="${this.name} a au total ${this.userReloadLikes} j'aime"></p>
                         <i class="heart-card fas fa-heart"></i>
                      </aside>
                     <p class="photographer-page__footer__price" tabindex="3">${this.price}€/jour</p>

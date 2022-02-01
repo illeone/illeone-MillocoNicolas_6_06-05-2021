@@ -14,7 +14,7 @@
             id="logo"
             src="logo.png"
             alt="FishEye page d'accueil"
-		aria-label="retour menu principal">
+			aria-label="retour menu principal">
 		
 	    </a>
 		<header class="header">
@@ -38,19 +38,19 @@
 					<span class="select_label select_label-placeholder">Popularité</span>
 				  </li>
 			  
-				  <li class="select_items">
+				  <li class="select_items" aria-label="trie les photos par date ou par titre">
 					<input class="select_expand" type="radio" name="customselect" id="customselect-opener" />
 					<label class="select_closeLabel" for="customselect-close"></label>
 			  
 					<ul class="select_options">
 					  <li class="select_option">
 						<input class="select_input" type="radio" name="customselect" id="customselect-date" value="date" />
-						<label class="select_label" for="customselect-date"><span class="border-top">Date</span></label>
+						<label class="select_label" for="customselect-date" aria-label="trie les photos par date"><span class="border-top">Date</span></label>
 					  </li>
 			  
 					  <li class="select_option">
 						<input class="select_input" type="radio" name="customselect" id="customselect-titre" value="title" />
-						<label class="select_label" for="customselect-titre"><span class="border-top">Titre</span></label>
+						<label class="select_label" for="customselect-titre" aria-label="trie les photos par titre"><span class="border-top">Titre</span></label>
 					  </li>
 			  
 					</ul>
@@ -62,13 +62,13 @@
 
 		</main>
         
-		<div id="contact__modal" class="modal" role="dialog" aria-modal="true">
+		<div id="contact__modal" class="modal" aria-label="Modal de contact">
 			<div class="modal-content">
 				<header class="modal-header">
 					<h1 class="modal-header-title">Contactez-moi</h1>
 					<span id="name"></span>
 				</header>
-				<form class="form">
+				<form class="form" aria-label="formulaire de contact">
 					<div class="form-field form-field-1">
 						<label for="firstname" class="form-label">Prénom</label>
 						<input class="form-input" id="firstname" type="text" name="firstname" required>
@@ -85,17 +85,17 @@
 						<label for="message-text" class="form-label">Votre message</label>
 						<textarea class="form-text-area" id="message-text"></textarea>
 					</div>
-					<button class="form-submit-button">Envoyer</button>
+					<button class="form-submit-button" aria-label="envoyer le formulaire">Envoyer</button>
 				</form>
-				<button class="close"><i class="fas fa-times"></i></button>
+				<button class="close" aria-label="fermer le formulaire"><i class="fas fa-times"></i></button>
 			</div>
 		</div>            
-		<div class="photographer-page__gallery" id="gallery"></div>
+		<div class="photographer-page__gallery" id="gallery" aria-label="cliquer pour agrandir la photo et acceder au diaporama"></div>
 
 		<div id="modale__lightbox">
-			<button class="lightbox__close"><i class="fas fa-times"></i></button>
-			<button class="lightbox__previous"><i class="fas fa-chevron-left"></i></button>
-			<button class="lightbox__next"><i class="fas fa-chevron-right"></i></button>
+			<button class="lightbox__close" aria-label="fermer le diaporama"><i class="fas fa-times"></i></button>
+			<button class="lightbox__previous" aria-label="photo précedente"><i class="fas fa-chevron-left"></i></button>
+			<button class="lightbox__next" aria-label="photo suivante"><i class="fas fa-chevron-right"></i></button>
 			<div class="lightbox__container">
 	    	</div>
 		</div>

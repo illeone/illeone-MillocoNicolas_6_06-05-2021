@@ -656,13 +656,13 @@ select option{
   color: #911c1c;
   background-color: white;
   border: none;
-  font-size: 3rem;
+  font-size: 3.5rem;
   position: fixed;
   top: 10px;
   right: 10px;
   cursor: pointer;
   top: 20px;
-  right: 10px;
+  right: 8rem;
   z-index: 11;
 }
 
@@ -679,38 +679,34 @@ select option{
   top: 0;
   right: 0;
   margin-top: 14px;
-  z-index: 11;
+  z-index: 10;
 }
 
 .lightbox__previous {
-  right:auto;
-  left:3rem;
+  left:8rem;
+  padding-bottom: 1rem;
 }
 
 .lightbox__next{
-  right: 3rem;
+  right: 8rem;
+  padding-bottom: 1rem;
 }
 
 .lightbox__media{
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 500px;
   object-fit: cover;
+}
+
+.lightbox__media__footer__figcaption{
+  margin-top: 1rem;
+  width: 37.5rem;
+  text-align: start;
 }
 
 .hide {
   display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* ################################## Button Select ################################## */
 .custom-select {

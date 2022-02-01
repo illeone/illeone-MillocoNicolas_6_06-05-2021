@@ -24,13 +24,14 @@ const headerPhotographer = (header) => {
     const thePhotographe = document.getElementById("photographer-page");
     const form = document.getElementById("name");
     form.innerHTML = header[0].name
-    // console.log(header);
+    console.log(header);
     // console.log(header.name);
 
 
 	header.forEach((photoId) => {
 		let photo = new Photographer(photoId);
 		thePhotographe.innerHTML = photo.createHTML2();
+        displayPhotographerModale();
 	});
 };
 
@@ -91,10 +92,9 @@ const addImageEvent = (e) => {
     previous.addEventListener("click", onPreviousMedia);
     close.addEventListener("click", onCloseMedia)
 
-    keyControl();
 };
 
-let onNextMedia = () => {
+const onNextMedia = () => {
 
     let photoLightbox = document.querySelectorAll(".lightbox__media");
         
@@ -124,7 +124,7 @@ let onNextMedia = () => {
     }
 };
 
-let onPreviousMedia = () => {
+const onPreviousMedia = () => {
 
     let photoLightbox = document.querySelectorAll(".lightbox__media");
     let lastLightbox = photoLightbox.length -1;
@@ -152,7 +152,7 @@ let onPreviousMedia = () => {
     }
 }
 
-let onCloseMedia = () => {
+const onCloseMedia = () => {
     const modale = document.getElementById("modale__lightbox");
     let photoLightbox = document.querySelectorAll(".lightbox__media");
 
@@ -163,8 +163,8 @@ let onCloseMedia = () => {
     });  
 }
 
-let keyControl = () => {
-    const modale = document.getElementById("modale__lightbox");
+const keyControl = () => {
+    console.log("keyControl")
 
     document.addEventListener('keydown', function(e) {
         switch (e.key) {
@@ -180,27 +180,6 @@ let keyControl = () => {
         }
     });
 }
-
-    // keyControl = (e) => {
-    //     switch (e.key) {
-    //         case 'ArrowLeft':
-    //             previous();
-    //             break;
-    //         case 'ArrowRight':
-    //             this.nextMedia()
-    //             break;
-    //         case 'Escape':
-    //             this.close()
-    //         break;
-    //         case 'Tab':
-    //             this.trackFocus(e)
-    //         break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
-
 
 const sortMedia = (gallery, type) => {
 	switch (type) {
@@ -279,6 +258,7 @@ const init = async() => {
     installChangeHandler(sorted);
     reloadLikes();
     updateLikes();
+    keyControl();
   };
   init();
 
