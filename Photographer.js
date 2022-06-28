@@ -17,7 +17,7 @@ class Photographer{
         return `
         <div class= "photographe"  >
                 <a class="photographer__profil" href="page-photographe.html?id=${this.id}" aria-label="lien vers le profil de ${this.name} situé à ${this.city} avec un tarif journalier de ${this.price} euro. Spécialisé dans ${this.tags} avec comme devise ${this.tagline}">
-                    <img class="vignette" src="photos/ID/${this.portrait}" alt="">
+                    <img class="vignette" src="Photos/ID/${this.portrait}" alt="">
                     <h2 class="photographer__profil__name">${this.name}</h2>
                 </a>
                 <p class="location">${this.city}, ${this.country}</p>
@@ -40,7 +40,7 @@ class Photographer{
                             `<li  class="photographer-page__tags  filtre_nav_head">#${tag}</li>`).join(" ")}</ul>
                     </div>
                     <button class="photographer-page__contact__button" tabindex="3">Contactez-moi</button>
-                    <img class="photographer-page__vignette" src="photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photographie de profil de ${this.name}">
+                    <img class="photographer-page__vignette" src="Photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photographie de profil de ${this.name}">
                 </div>
                 <div class="jaja" aria-label="carte info de ${this.name} avec son nombre total de j'aime et son tarif journalier">
                     <aside class="photographer-page__footer__aside">
