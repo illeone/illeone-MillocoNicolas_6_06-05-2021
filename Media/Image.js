@@ -11,8 +11,10 @@ class Image {
 	createHtmlMedia() {
 		return `
         <figure class="photographer-page__gallery">
-            <div class="media">
-                <img class="photographer-page__gallery__media" alt="${this.imgTitle}" aria-label="le titre de la photo est ${this.imgTitle}" src="Photos/media/${this.imgSrc}"</img>
+            <div class="media" >
+                <a href="#" role="button">
+                    <img class="photographer-page__gallery__media" alt="${this.imgTitle}" aria-label="le titre de la photo est ${this.imgTitle}" src="Photos/media/${this.imgSrc}"</img>
+                </a>
                 <div class="photographer-page__gallery__media__footer">
                     <figcaption class="photographer-page__gallery__media__footer__figcaption">${this.imgTitle}</figcaption>
                     <div class="photographer-page__gallery__media__footer__like">
@@ -27,7 +29,7 @@ class Image {
     createLightbox() {
         return `
         <div class="lightbox hide">
-                <img class="lightbox__media" alt="${this.imgTitle}" src="Photos/media/${this.imgSrc}"</img>
+                <img class="lightbox__media" alt="${this.imgTitle}" aria-label="le titre de la photo est ${this.imgTitle}" src="Photos/media/${this.imgSrc}"</img>
                 <div class="lightbox__media__footer">
                     <figcaption class="lightbox__media__footer__figcaption">${this.imgTitle}</figcaption>
                 </div>

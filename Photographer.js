@@ -32,22 +32,22 @@ class Photographer{
         
         return  `
                  <div class="photographer-page__header">
-                    <div class="photographer-page__header__profil">
+                    <div class="photographer-page__header__profil" tabindex="0">
                         <h1 class="photographer-page__name">${this.name}</h1>
                         <p class="photographer-page__location">${this.city}, ${this.country}</p>
                         <p class="photographer-page__tagline">${this.tagline}</p>
                         <ul class="photographer-page__taglist">${this.tags.map(tag => 
                             `<li  class="photographer-page__tags  filtre_nav_head">#${tag}</li>`).join(" ")}</ul>
                     </div>
-                    <button class="photographer-page__contact__button" tabindex="3">Contactez-moi</button>
-                    <img class="photographer-page__vignette" src="Photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photographie de profil de ${this.name}">
+                    <button class="photographer-page__contact__button">Contactez-moi</button>
+                    <img class="photographer-page__vignette" src="Photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photo de profil de ${this.name}">
                 </div>
-                <div class="jaja" aria-label="carte info de ${this.name} avec son nombre total de j'aime et son tarif journalier">
+                <div class="card-info" tabindex="5"aria-label="carte info de ${this.name} avec son nombre total de j'aime et son tarif journalier">
                     <aside class="photographer-page__footer__aside">
-                        <p class="photographer-page__footer__aside__total-likes" aria-label="${this.name} a au total ${this.userReloadLikes} j'aime"></p>
+                        <p class="photographer-page__footer__aside__total-likes"></p>
                         <i class="heart-card fas fa-heart"></i>
                      </aside>
-                    <p class="photographer-page__footer__price" tabindex="3">${this.price}€/jour</p>
+                    <p class="photographer-page__footer__price" tabindex="5">${this.price}€/jour</p>
                 </div>
                 `
     } 
