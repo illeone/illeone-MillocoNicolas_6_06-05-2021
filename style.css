@@ -190,7 +190,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 1;
-    transform: translateY(700px);
+    transform: translateY(800px);
   }
   
   /* Modal Content */
@@ -200,8 +200,8 @@ body {
     border: 1px solid #888;
     margin: auto;
     padding: 0rem 2rem 9rem 2rem;
-    width: 48%;
-    height: 135%;
+    width: 39rem;
+    height: auto;
     border-radius: 5px;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -222,6 +222,9 @@ body {
     font-weight: normal;
     line-height: 30px;
   }
+  .modal-header-align{
+    display: flex;
+  }
   #name{
     font-family: 'DM Sans', sans-serif;
     font-size: 64px;
@@ -232,6 +235,7 @@ body {
     border: none;
     height: 58px;
     width: 599px;
+    margin-bottom: 1.5rem;
   }
   
   .form-input:focus {
@@ -328,19 +332,21 @@ body {
     width: 180px;
     margin-top: 2rem;
     cursor: pointer;
-    transition: 0.6s;
+    transition: 0.4s;
   }
 
   .form-submit-button:hover {
     transition: 0.5s;
     box-shadow: 0px 0px 20px #4f0f0f;
+    transform: scale(1.03);
+    transition: 0.4s;
   }
   
   /* The Close Button */
   .close {
-    position: absolute;
-    top: 3.5rem;
-    right: 20.5rem;
+    margin-left: 9.5rem;
+    margin-top: 1.5rem;
+
     font-size: 3.8rem;
     background-color: transparent;
     border: none;
@@ -505,11 +511,11 @@ body {
 
 .photographer-page__vignette {
     border-radius: 50%;
-    height: 12.5rem;
-    width: 12.5rem;
-    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    /* margin: 0 auto; */
     object-fit: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-left: 16rem;
     
   }
@@ -546,24 +552,29 @@ select option{
 /* ################################## gallery ################################## */
   
 
-  #gallery{
+#gallery{
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
 
-  }
+}
 
-  .photographer-page__gallery__media{
-      width: 24rem;
-      height: 18rem;
-      margin-right: -3.5rem;
-      margin-left: -0.5rem;
-      object-fit: cover;
-      border-radius: 0.4rem;
-      cursor: pointer;
-  }
+.photographer-page__gallery__media{
+    width: 24rem;
+    height: 18rem;
+    margin-right: -3.5rem;
+    margin-left: -0.5rem;
+    object-fit: cover;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: 0.6s;
+}
+.photographer-page__gallery__media:hover{
+  transform: scale(1.02);
+  transition: 0.6s;
+}
 
 .photographer-page__gallery__media__footer{
     display: flex;
@@ -662,8 +673,17 @@ select option{
   right: 10px;
   cursor: pointer;
   top: 20px;
-  right: 8rem;
+  right: 15rem;
   z-index: 11;
+  background-color: transparent;
+  transition: 0.3s;
+}
+.lightbox__close:hover{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  transform: rotate(90deg);
 }
 
 .lightbox__next,
@@ -676,20 +696,30 @@ select option{
   font-size: 4rem;
   height: 100%;
   position: fixed;
-  top: 0;
-  right: 0;
-  margin-top: 14px;
+  /* top: 0;
+  right: 0; */
+  /* margin-top: 14px; */
   z-index: 10;
 }
 
 .lightbox__previous {
-  left:8rem;
+  left:15rem;
   padding-bottom: 1rem;
+  transition: 0.5s;
+}
+.lightbox__previous:hover {
+  transform: scale(1.15);
+  transition: 0.5s;
 }
 
 .lightbox__next{
-  right: 8rem;
+  right: 15rem;
   padding-bottom: 1rem;
+  transition: 0.5s;
+}
+.lightbox__next:hover{
+  transform: scale(1.15);
+  transition: 0.5s;
 }
 
 .lightbox__media{
@@ -863,6 +893,36 @@ select option{
 }
 #customselect-titre{
   z-index: 99;
+}
+
+
+
+
+.far{
+  transition: 0.4s;
+}
+.far:hover{
+  transform: scale(1.05);
+  transition: 0.4s;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-0.5px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+  
+  30%, 50%, 70% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(1px, 0, 0);
+  }
 }
 
 

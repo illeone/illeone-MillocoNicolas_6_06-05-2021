@@ -17,7 +17,7 @@ class Photographer{
         return `
         <div class= "photographe"  >
                 <a class="photographer__profil" href="page-photographe.html?id=${this.id}" aria-label="lien vers le profil de ${this.name} situé à ${this.city} avec un tarif journalier de ${this.price} euro. Spécialisé dans ${this.tags} avec comme devise ${this.tagline}">
-                    <img class="vignette" src="Photos/ID/${this.portrait}" alt="">
+                    <img class="vignette" src="Photos/ID/${this.portrait}" alt="photo de profil du photographe ${this.name} ">
                     <h2 class="photographer__profil__name">${this.name}</h2>
                 </a>
                 <p class="location">${this.city}, ${this.country}</p>

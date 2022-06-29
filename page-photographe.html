@@ -65,8 +65,12 @@
 		<div id="contact__modal" class="modal" aria-label="Modal de contact">
 			<div class="modal-content">
 				<header class="modal-header">
-					<h1 class="modal-header-title">Contactez-moi</h1>
+					<div class="modal-header-align">
+						<h1 class="modal-header-title">Contactez-moi</h1>
+						<button class="close" aria-label="fermer le formulaire"><i class="fas fa-times"></i></button>
+					</div>
 					<span id="name"></span>
+					
 				</header>
 				<form class="form" aria-label="formulaire de contact">
 					<div class="form-field form-field-1">
@@ -87,7 +91,7 @@
 					</div>
 					<button class="form-submit-button" aria-label="envoyer le formulaire">Envoyer</button>
 				</form>
-				<button class="close" aria-label="fermer le formulaire"><i class="fas fa-times"></i></button>
+				
 			</div>
 		</div>            
 		<div class="photographer-page__gallery" id="gallery" aria-label="cliquer pour agrandir la photo et acceder au diaporama"></div>
@@ -96,8 +100,7 @@
 			<button class="lightbox__close" aria-label="fermer le diaporama"><i class="fas fa-times"></i></button>
 			<button class="lightbox__previous" aria-label="photo précedente"><i class="fas fa-chevron-left"></i></button>
 			<button class="lightbox__next" aria-label="photo suivante"><i class="fas fa-chevron-right"></i></button>
-			<div class="lightbox__container">
-	    	</div>
+			<div class="lightbox__container"></div>	
 		</div>
 
 		<footer class="footer-photographer" id="footer__photographer"></footer>
