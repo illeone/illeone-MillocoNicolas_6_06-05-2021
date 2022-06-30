@@ -9,9 +9,9 @@ class Video {
 
 	createHtmlMedia() {
 		return `
-        <figure class="photographer-page__gallery">
+        <figure class="photographer-page__gallery ">
             <a href="#" role="button" class="media__link videoLogo">
-                <video class="photographer-page__gallery__media alt="${this.videoTitle}" aria-label="le titre de la video est ${this.videoTitle}" src="Photos/media/${this.videoSrc}"></video>
+                <video class="photographer-page__gallery__media" alt="${this.videoTitle}" aria-label="le titre de la video est ${this.videoTitle}" src="Photos/media/${this.videoSrc}"></video>
             </a>
             <div class="photographer-page__gallery__media__footer">
                 <figcaption class="photographer-page__gallery__media__footer__figcaption">${this.videoTitle}</figcaption>

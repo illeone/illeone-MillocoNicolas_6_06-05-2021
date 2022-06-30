@@ -570,11 +570,45 @@ select option{
     border-radius: 0.4rem;
     cursor: pointer;
     transition: 0.6s;
+    
 }
 .photographer-page__gallery__media:hover{
   transform: scale(1.02);
   transition: 0.6s;
 }
+.videoLogo{
+  filter: brightness(85%);
+  transition: 0.6s;
+}
+.videoLogo:hover{
+  filter: brightness(100%);
+  transition: 0.6s;
+}
+
+.videoLogo:after {
+  content: "";
+  position: absolute;
+  top:-8rem;
+  right: 6rem;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 30px solid #fff;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 5;
+  transition: 0.6s;
+  opacity: 0.73;
+}  
+.videoLogo:hover:after {
+  transform: scale(1.5);
+  top:-9rem;
+  right: 7rem;
+
+  transition: 0.6s;
+}
+
+
 
 .photographer-page__gallery__media__footer{
     display: flex;
@@ -929,23 +963,3 @@ select option{
 
 
 
-
-/* .media__link.videoLogo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0,0,0,.15);
-}
-
-.media__link.videoLogo::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 30px solid #fff;
-  transform: translate3d(-50%, -50%, 0);
-} */
