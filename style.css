@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif
+}
+
 a{
     text-decoration: none;
 }
@@ -189,7 +194,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     transform: translateY(800px);
   }
   
@@ -204,7 +209,6 @@ body {
     height: auto;
     border-radius: 5px;
     margin-top: 2rem;
-    margin-bottom: 2rem;
   }
   
   .modal-form {
@@ -217,7 +221,8 @@ body {
 
   .modal-header-title {
     font-family: 'DM Sans', sans-serif;
-    font-size: 64px;
+    font-size: 56px;
+    padding-top: 8px;
     margin-bottom: 20px;
     font-weight: normal;
     line-height: 30px;
@@ -227,14 +232,14 @@ body {
   }
   #name{
     font-family: 'DM Sans', sans-serif;
-    font-size: 64px;
+    font-size: 56px;
   } 
   
   .form-input {
     border-radius: 5px;
     border: none;
     height: 58px;
-    width: 599px;
+    width: 550px;
     margin-bottom: 1.5rem;
   }
   
@@ -250,7 +255,7 @@ body {
     border: none;
     font-size: 25px;
     font-family: 'DM Sans', sans-serif;
-    width: 599px;
+    width: 550px;
     border-radius: 5px;
     padding-left: 1rem;
     padding-top: 1rem;
@@ -344,7 +349,7 @@ body {
   
   /* The Close Button */
   .close {
-    margin-left: 9.5rem;
+    margin-left: 7rem;
     margin-top: 1.5rem;
 
     font-size: 3.8rem;
@@ -472,6 +477,7 @@ body {
     background-color:#DB8876;
     box-shadow:  0px 0px 8px black;
     transition: 0.3s;
+    color: black;
   }
   .photographer-page__contact__button:active{
     box-shadow:  inset 0px 0px 8px black;
@@ -598,12 +604,13 @@ select option{
   transform: translate3d(-50%, -50%, 0);
   z-index: 5;
   transition: 0.6s;
-  opacity: 0.73;
+  
 }  
 .videoLogo:hover:after {
   transform: scale(1.5);
   top:-9rem;
   right: 7rem;
+  opacity: 0.73;
 
   transition: 0.6s;
 }
@@ -619,6 +626,10 @@ select option{
 
 .photographer-page__gallery__media__footer__figcaption{
   margin-top: 1rem;
+  color:#901C1C;
+}
+.photographer-page__gallery__media__footer__like__counter{
+  color:#901C1C;
 }
 
 .photographer-page__gallery__media__footer__like{
@@ -643,13 +654,13 @@ select option{
   display: flex;
   justify-content: space-between;
   position: fixed;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
-  height: 70px;
+  height: 60px;
   padding: 0 2rem;
   right: 2.5rem;
-  width: 270px;
+  width: 300px;
   z-index: 1;
 }
 
@@ -658,7 +669,7 @@ select option{
 }
 
 .heart-card{
-  margin-top: 1.6rem;
+  margin-top: 1.4rem;
   margin-left: 0.5rem;
 }
 
@@ -781,7 +792,7 @@ select option{
   list-style-type: none;
 }
 .select {
-  width: 128px;
+  width: 160px;
   height: 73px;
   cursor: pointer;
   background-color: #911c1c;
@@ -871,7 +882,7 @@ select option{
 .select_expand:checked + .select_closeLabel + .select_options {
   background: #911c1c;
   border-radius: 0 0 5px 5px;
-  width: 8rem;
+  width: 10rem;
 }
 .select_expand:checked + .select_closeLabel + .select_options .select_label {
   height: 69px;

@@ -18,7 +18,7 @@ class Image {
                 <div class="photographer-page__gallery__media__footer">
                     <figcaption class="photographer-page__gallery__media__footer__figcaption">${this.imgTitle}</figcaption>
                     <div class="photographer-page__gallery__media__footer__like">
-                        <p class="photographer-page__gallery__media__footer__like__counter" aria-label="la photo a reçu ${this.imgLikes} j'aime">${this.imgLikes}</p>
+                        <p class="photographer-page__gallery__media__footer__like__counter" tabindex="0" aria-label="la photo a reçu ${this.imgLikes} jaime">${this.imgLikes}</p>
                         <button class="photographer-page__gallery__media__footer__like__button far fa-heart" aria-label="cliquer pour mettre un j'aime à cette photo"</button>
                     </div>
                 </div>

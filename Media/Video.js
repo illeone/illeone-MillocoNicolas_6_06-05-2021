@@ -16,7 +16,7 @@ class Video {
             <div class="photographer-page__gallery__media__footer">
                 <figcaption class="photographer-page__gallery__media__footer__figcaption">${this.videoTitle}</figcaption>
                 <div class="photographer-page__gallery__media__footer__like">
-                        <p class="photographer-page__gallery__media__footer__like__counter" aria-label="la photo a reçu ${this.videoLikes} j'aime">${this.videoLikes}</p>
+                        <p class="photographer-page__gallery__media__footer__like__counter" tabindex="0" aria-label="la vidéo a reçu ${this.videoLikes} jaime">${this.videoLikes}</p>
                         <button class="photographer-page__gallery__media__footer__like__button far fa-heart" aria-label="cliquer pour mettre un j'aime à cette vidéo"</button>
                  </div>
             </div>

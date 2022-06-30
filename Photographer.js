@@ -42,12 +42,12 @@ class Photographer{
                     <button class="photographer-page__contact__button">Contactez-moi</button>
                     <img class="photographer-page__vignette" src="Photos/ID/${this.portrait}" class="photographer-page__photo" alt="Photo de profil de ${this.name}">
                 </div>
-                <div class="card-info" tabindex="5"aria-label="carte info de ${this.name} avec son nombre total de j'aime et son tarif journalier">
+                <div class="card-info" tabindex="0"aria-label="carte info de ${this.name} avec son nombre total de j'aime et son tarif journalier">
                     <aside class="photographer-page__footer__aside">
                         <p class="photographer-page__footer__aside__total-likes"></p>
                         <i class="heart-card fas fa-heart"></i>
                      </aside>
-                    <p class="photographer-page__footer__price" tabindex="5">${this.price}€/jour</p>
+                    <p class="photographer-page__footer__price" tabindex="0">${this.price}€/jour</p>
                 </div>
                 `
     } 
